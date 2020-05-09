@@ -1,4 +1,4 @@
-it is avaible on nuget.org as MiniServer
+The package is available on nuget.org as MiniServer
 
 Here is a simple usage example:
 

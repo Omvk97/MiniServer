@@ -7,22 +7,6 @@ namespace MiniServer
 {
     public class MinServer
     {
-        public enum HttpMethod
-        {
-            GET,
-            POST,
-            PUT,
-            DELETE,
-            PATCH
-        }
-
-        public class EndPoint
-        {
-            public HttpMethod HttpMethod { get; set; }
-            public string UrlSuffix { get; set; }
-            public Delegate Callback { get; set; }
-        }
-
         private HttpListener _listener;
         private readonly string _serverUrl;
         private bool _runServer = true;
@@ -82,7 +66,7 @@ namespace MiniServer
             });
         }
 
-        public async Task HandleIncomingConnections()
+        private async Task HandleIncomingConnections()
         {
             while (_runServer)
             {
@@ -99,12 +83,12 @@ namespace MiniServer
                 }
 
                 // Print out some info about the request
-                var requestUrl = req.Url.ToString();
+                var requestUrl = req.Url.ToString().ToLower();
                 var httpMethod = req.HttpMethod;
                 bool validRouteFound = false;
                 foreach (EndPoint endPoint in _listenerEndpoints)
                 {
-                    var fullUrl = _serverUrl + endPoint.UrlSuffix;
+                    var fullUrl = (_serverUrl + endPoint.UrlSuffix).ToLower();
                     if (fullUrl.Equals(requestUrl) && httpMethod.Equals(endPoint.HttpMethod.ToString()))
                     {
                         validRouteFound = true;
@@ -124,7 +108,7 @@ namespace MiniServer
         {
             _runServer = false;
         }
-        public async Task Listen()
+        public async Task Start()
         {
             // Create a Http server and start listening for incoming connections
             _listener = new HttpListener();

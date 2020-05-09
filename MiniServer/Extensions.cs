@@ -1,12 +1,10 @@
-﻿using System;
-using System.Text;
+﻿using System.Text;
 using System.Net;
 using System.Text.Json;
 using System.Threading.Tasks;
-
-namespace MiniServer.Extensions
+namespace MiniServer
 {
-    public static class HttpListener
+    public static class Extensions
     {
         public static async Task SendJSONAsync(this HttpListenerResponse response, object objectToSend)
         {

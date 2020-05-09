@@ -1,3 +1,5 @@
+it is avaible on nuget.org as MiniServer
+
 Here is a simple usage example:
 
 ```

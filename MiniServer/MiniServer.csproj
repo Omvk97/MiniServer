@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <PackageId>MiniServer</PackageId>
-    <Version>0.0.3</Version>
+    <Version>0.1.0</Version>
     <PackageTags>HttpServer;Express;Node;Simple;Minimalistic;Server;Http;Web;Easy</PackageTags>
     <Description>
       A similar kind of httpserver known from frameworks such as Express (NodeJs). Very minimalistic and easy to work with.
